@@ -1,6 +1,7 @@
 import cv2
 from matplotlib import pyplot as plt
 import numpy as np
+import os
 import time # Esto solo lo usamos para control
 
 # Funciones para eliminar lo que toque los bordes
@@ -16,21 +17,21 @@ def imreconstruct(marker, mask, kernel=None):
     return expanded_intersection
 
 def imclearborder(img):
-    
     marker = img.copy()               
     marker[1:-1,1:-1] = 0             
     border_elements = imreconstruct(marker=marker, mask=img)    
     img_cb = cv2.subtract(img, border_elements)                 
     return img_cb
 
-
+# abs_path = 'D:\\Users\\csard 90\\Desktop\\TUIA\\Materias\\IV\\IA 4.4 Procesamiento de Imagenes I\\TP_03'
+abs_path = 'E:\\UNR\\4 - Proc de Imágenes I (IA44)\\TP3\\PDI_TP3'
 videos = ['tirada_1.mp4', 'tirada_2.mp4', 'tirada_3.mp4', 'tirada_4.mp4']
 n=1
 
 for video in videos:
 
     # Colocar la ruta absoluta
-    cap = cv2.VideoCapture(f'D:\\Users\\csard 90\\Desktop\\TUIA\\Materias\\IV\\IA 4.4 Procesamiento de Imagenes I\\TP_03\\{video}')
+    cap = cv2.VideoCapture(os.path.join(abs_path, video))
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
@@ -178,6 +179,10 @@ for video in videos:
             # print(f'Centroides detectados:\n{centroides_actual}')
             # ------------------------------------------------------------------------------
 
+            # Mostrar el nombre del video en el frame
+            cv2.putText(frame, "Video Analizado:", (75, 150), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
+            cv2.putText(frame, f"[ {video} ]", (150, 220), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
+            
             resultado_final = frame.copy() 
 
             # Si:
