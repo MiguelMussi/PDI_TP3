@@ -227,7 +227,7 @@ for video in videos:
                                             (dados_actual[i, cv2.CC_STAT_LEFT], dados_actual[i, cv2.CC_STAT_TOP]), 
                                             (dados_actual[i, cv2.CC_STAT_LEFT]+dados_actual[i, cv2.CC_STAT_WIDTH] , 
                                             dados_actual[i, cv2.CC_STAT_TOP]+dados_actual[i, cv2.CC_STAT_HEIGHT]), \
-                                            (0, 0, 255), 4)
+                                            (255, 0, 0), 4)
 
                         # -------------------------- Contar nro dados ---------------------------------                        
                         # El numero de los dados lo contamos una unica vez, porque si lo intentamos contar en cada frame muchas
@@ -276,7 +276,7 @@ for video in videos:
                         # i que esta guardada en la posicion i de la lista anterior
                         resultado_final = cv2.putText(resultado_final, f'{str(numeros_dados[i])}', \
                                 (dados_actual[i, cv2.CC_STAT_LEFT]+15,dados_actual[i, cv2.CC_STAT_TOP]-15), \
-                                cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 3)
+                                cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 3)
                         # plt.imshow(cv2.cvtColor(resultado_final, cv2.COLOR_BGR2RGB)), plt.show()                                            
     
             # Mostramos por pantalla
