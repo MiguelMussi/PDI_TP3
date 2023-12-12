@@ -65,11 +65,11 @@ for video in videos:
             ix_s = np.logical_and(s > 75, s < 255)
             ix = np.logical_and(ix_h1, ix_s)
 
-            r, g, b = cv2.split(frame)
-            r[ix != True] = 0
-            g[ix != True] = 0
+            b, g, r = cv2.split(frame)
             b[ix != True] = 0
-            paño_img = cv2.merge((r, g, b))
+            g[ix != True] = 0
+            r[ix != True] = 0
+            paño_img = cv2.merge((b, g, r))
             # plt.imshow(cv2.cvtColor(paño_img, cv2.COLOR_BGR2RGB), cmap='gray'), plt.show()
             
             # Pasamos la imagen del paño a escala de grises
@@ -105,11 +105,11 @@ for video in videos:
             ix_s = np.logical_and(s > 150, s <= 255)            
             ix = np.logical_and(np.logical_or(ix_h1, ix_h2), ix_s)
 
-            r, g, b = cv2.split(frame)
-            r[ix != True] = 0
-            g[ix != True] = 0
+            b, g, r = cv2.split(frame)
             b[ix != True] = 0
-            dados = cv2.merge((r, g, b))
+            g[ix != True] = 0
+            r[ix != True] = 0
+            dados = cv2.merge((b, g, r))
             # plt.imshow(cv2.cvtColor(dados, cv2.COLOR_BGR2RGB)), plt.show()
 
             # Pasamos la imagen del paño a escala de grises
