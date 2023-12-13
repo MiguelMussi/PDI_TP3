@@ -25,7 +25,7 @@ def imclearborder(img):
 
 # abs_path = 'D:\\Users\\csard 90\\Desktop\\TUIA\\Materias\\IV\\IA 4.4 Procesamiento de Imagenes I\\TP_03'
 abs_path = 'E:\\UNR\\4 - Proc de Imágenes I (IA44)\\TP3\\PDI_TP3'
-videos = ['tirada_1.mp4', 'tirada_2.mp4', 'tirada_3.mp4', 'tirada_4.mp4']
+videos = ['tirada_1.mp4', 'tirada_2.mp4', 'tirada_3.mp4', 'tirada_4.mp4', 'tirada_5.mp4', 'tirada_6.mp4']
 n=1
 
 for video in videos:
